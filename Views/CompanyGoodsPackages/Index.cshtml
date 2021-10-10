@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GoodsPackaging.Models.CompanyGoodsPackage>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*adding style,border & button*@
+<h1 style="text-align:center">Manage Company Goods Packages</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add New Here</a>
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodsType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackagingDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.CompanyId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageType.PackageTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodsType.GoodsTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackagingDate)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.companyGoodsPackageId">Edit</a> |
+                <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.companyGoodsPackageId">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.companyGoodsPackageId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

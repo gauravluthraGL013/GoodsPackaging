@@ -1,0 +1,42 @@
+﻿@model IEnumerable<GoodsPackaging.Models.PackageType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@*adding style and button*@
+
+<h1 style="text-align:center">Manage Package Types</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add Packaged Types Here</a>
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PackagingType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackagingType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PackageTypeId">Edit</a> |
+                <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.PackageTypeId">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PackageTypeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

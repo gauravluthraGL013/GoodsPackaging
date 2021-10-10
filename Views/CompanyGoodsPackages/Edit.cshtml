@@ -1,0 +1,49 @@
+﻿@model GoodsPackaging.Models.CompanyGoodsPackage
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 >Edit</h1>
+
+<h4 >CompanyGoodsPackage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="companyGoodsPackageId" />
+            <div class="form-group">
+                <label asp-for="CompanyId" class="control-label"></label>
+                <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
+                <span asp-validation-for="CompanyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageTypeid" class="control-label"></label>
+                <select asp-for="PackageTypeid" class="form-control" asp-items="ViewBag.PackageTypeid"></select>
+                <span asp-validation-for="PackageTypeid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GoodsTypeId" class="control-label"></label>
+                <select asp-for="GoodsTypeId" class="form-control" asp-items="ViewBag.GoodsTypeId"></select>
+                <span asp-validation-for="GoodsTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackagingDate" class="control-label"></label>
+                <input asp-for="PackagingDate" class="form-control" />
+                <span asp-validation-for="PackagingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

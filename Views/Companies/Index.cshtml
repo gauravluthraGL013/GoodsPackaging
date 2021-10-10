@@ -1,0 +1,60 @@
+﻿@model IEnumerable<GoodsPackaging.Models.Company>
+
+@{
+    ViewData["Title"] = "Index";
+}
+ @*adding style, class & button in h1, p & table*@
+
+<h1 style="text-align:center">Manage Companies</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add New Company Here</a>
+</p>
+<table class="table table-bordered table-hover" style="text-align:center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.CompanyId">Edit</a> |
+                <a class="btn btn-secondary"  asp-action="Details" asp-route-id="@item.CompanyId">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CompanyId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
