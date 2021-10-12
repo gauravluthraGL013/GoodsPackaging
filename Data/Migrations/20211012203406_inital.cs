@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
-namespace GoodsPackaging.Migrations
+namespace GoodsPackaging.Data.Migrations
 {
-    public partial class dbsetup : Migration
+    public partial class inital : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -100,6 +100,7 @@ namespace GoodsPackaging.Migrations
                 name: "IX_CompanyGoodsPackage_PackageTypeid",
                 table: "CompanyGoodsPackage",
                 column: "PackageTypeid");
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
